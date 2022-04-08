@@ -3,9 +3,9 @@
 % nodes: 
 % sel,sta,tip,ny,name,uhom,nsx,pn,qn,pg,qg,vzd,qmin,qmax,bshr,gshr,vras,delta,qnr,pnr
 
-nodes = readtable('ues_vostok_nodes.csv');
-edges = readtable('ues_vostok_edges.csv');
-polin = readtable('ues_vostok_polin.csv');
+nodes = readtable('networks/ues_vostok_nodes.csv');
+edges = readtable('networks/ues_vostok_edges.csv');
+polin = readtable('networks/ues_vostok_polin.csv');
 
 network = preprocess_network(nodes, edges);
 [network, edges] = preprocess_data(network, edges, polin);
