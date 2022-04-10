@@ -3,7 +3,7 @@ function [y, r] = admittance_matrix(nodes, edges)
 
     y = zeros(nodes_count, nodes_count);
     r = zeros(nodes_count, nodes_count);
-    
+
     for k = 1:nodes_count - 1       
         y(k, k) = (nodes.gshr(k) - 1i*nodes.bshr(k)) * 10^(-6);
     end
@@ -19,7 +19,7 @@ function [y, r] = admittance_matrix(nodes, edges)
         % edge is not in island
         if isempty(i) || isempty(j)
             continue;
-        end
+        end     
         
         z = edges.r(k) + 1i*edges.x(k);
                
@@ -48,4 +48,7 @@ function [y, r] = admittance_matrix(nodes, edges)
         r(i, j) = -angle(y(i, j)) + angle(1/kt);
         r(j, i) = r(i, j);
     end
+
+%     y = sparse(y);
+%     r = sparse(r);
 end
